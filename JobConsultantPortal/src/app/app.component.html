@@ -9,16 +9,12 @@
       <a class="navbar-brand">{{pageTitle}}</a>
 
       <ul class="navbar-nav navbar-right">
-          <!-- <li class="nav-item" *ngIf="isLoggedIn">
-              <a class="nav-link" routerLink='/login'>Welcome {{ userName }}</a>
+          <li class="nav-item">
+              <a class="nav-link" routerLink='/login'>Hi There</a>
           </li>
-          <li class="nav-item" *ngIf="!isLoggedIn">
-              <a class="nav-link" routerLink='/login'>Log In</a>
-          </li>
-          <li class="nav-item" *ngIf="isLoggedIn">
-              <a class="nav-link" (click)="logOut()" style="cursor: pointer">Log Out</a>
-          </li> -->
       </ul>
   </div>
 </nav>
-
+<div class="container">
+  <app-job-shell></app-job-shell>
+</div>

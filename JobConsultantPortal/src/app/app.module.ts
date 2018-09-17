@@ -7,11 +7,13 @@ import { InMemoryDataService } from './jobdata/in-memory-data.service';
 import { JobService } from './jobdata/job.service';
 
 import { AppComponent } from './app.component';
+import { JobShellComponent } from './job-shell/job-shell.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JobShellComponent
   ],
   imports: [
     BrowserModule,
