@@ -8,6 +8,7 @@ import { JobService } from './jobdata/job.service';
 })
 export class AppComponent implements OnInit {
   title = 'JobConsultantPortal';
+  pageTitle = 'Company Name';
 
   constructor(private jobService: JobService) {}
 
