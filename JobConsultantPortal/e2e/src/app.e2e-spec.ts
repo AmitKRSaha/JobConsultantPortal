@@ -16,4 +16,9 @@ describe('workspace-project App', () => {
     page.navigateTo();
     expect(page.getPageText()).toEqual('Company Name');
   });
+
+  it('should display Search Text Box', () => {
+    page.navigateTo();
+    expect(page.getTextBox()).toBeTruthy();
+  });
 });

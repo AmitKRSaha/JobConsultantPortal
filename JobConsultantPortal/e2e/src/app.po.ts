@@ -12,4 +12,8 @@ export class AppPage {
   getPageText() {
     return element(by.css('app-root .container-fluid a')).getText();
   }
+
+  getTextBox() {
+    return element(by.css('app-root .col-md-6 input'));
+  }
 }

@@ -13,6 +13,6 @@ export class AppComponent implements OnInit {
   constructor(private jobService: JobService) {}
 
  ngOnInit() {
-   this.jobService.getJobs().subscribe(data => console.log(data));
+
  }
 }
