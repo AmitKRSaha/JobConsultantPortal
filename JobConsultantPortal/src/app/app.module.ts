@@ -8,18 +8,21 @@ import { JobService } from './jobdata/job.service';
 
 import { AppComponent } from './app.component';
 import { JobShellComponent } from './job-shell/job-shell.component';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     JobShellComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false})
   ],
-  providers: [JobService],
+  providers: [JobService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

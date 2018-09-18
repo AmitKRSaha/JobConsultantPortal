@@ -31,57 +31,51 @@
       </div>
 </div>
 
-<!-- For Short Listed Candidate -->
-<div [ngClass]="{'open': opensection.shortListed == 'open', 'closed': opensection.shortListed == 'closed'}">
-    <div class="card border-success mb-3" style="max-width: 100%;">
-        <div class="card-header bg-transparent border-success">Candidate Details</div>
-        <div class="card-body text-success">
-          <h5 class="card-title"><div class="row">
-              <div class="col-md-3">Name</div>
-              <div class="col-md-3">Works At</div>
-              <div class="col-md-3">Exp</div>
-              <div class="col-md-3">CTC</div>
-            </div></h5>
-            <div class="row card-footer bg-transparent border-success jobsdetail" style="cursor: pointer;"
-                *ngFor="let candidate of this.cadidatedetails; let i = index" (click)="getCandidateInterviewDetails(candidate.jobId)">
-                <div class="col-md-3">{{candidate.name}}</div>
-                <div class="col-md-3">{{candidate.worksat}}</div>
-                <div class="col-md-3">{{candidate.Exp}}</div>
-                <div class="col-md-3">{{candidate.CTC}}</div>
+<div class="row">
+  <div class="col-md-6">
+      <!-- For Short Listed Candidate -->
+      <div [ngClass]="{'open': opensection.shortListed == 'open', 'closed': opensection.shortListed == 'closed'}">
+          <div class="card border-success mb-3" style="max-width: 100%;">
+              <div class="card-header bg-transparent border-success">Candidate Details</div>
+              <div class="card-body text-success">
+                <h5 class="card-title"><div class="row">
+                    <div class="col-md-3">Name</div>
+                    <div class="col-md-3">Works At</div>
+                    <div class="col-md-3">Exp</div>
+                    <div class="col-md-3">CTC</div>
+                  </div></h5>
+                  <div class="row card-footer bg-transparent border-success jobsdetail" style="cursor: pointer;"
+                      *ngFor="let candidate of this.cadidatedetails; let i = index" (click)="getCandidateInterviewDetails(candidate.jobId)">
+                      <div class="col-md-3">{{candidate.name}}</div>
+                      <div class="col-md-3">{{candidate.worksat}}</div>
+                      <div class="col-md-3">{{candidate.Exp}}</div>
+                      <div class="col-md-3">{{candidate.CTC}}</div>
+                    </div>
               </div>
-        </div>
+            </div>
       </div>
-</div>
-
-<!-- For Interview Details -->
-<div [ngClass]="{'open': opensection.interview == 'open', 'closed': opensection.interview == 'closed'}">
-    <div class="card border-success mb-3" style="max-width: 100%;">
-        <div class="card-header bg-transparent border-success">Interview Details</div>
-        <div class="card-body text-success">
-          <h5 class="card-title"><div class="row">
-              <div class="col-md-3">Interview</div>
-              <div class="col-md-3">Interviewer</div>
-              <div class="col-md-3">Date</div>
-              <div class="col-md-3">Result</div>
-            </div></h5>
-            <div class="row card-footer bg-transparent border-success jobsdetail" style="cursor: pointer;"
-                *ngFor="let interview of this.interviewdetails; let i = index">
-                <div class="col-md-3">{{interview.Interview}}</div>
-                <div class="col-md-3">{{interview.interviewer}}</div>
-                <div class="col-md-3">{{interview.Date}}</div>
-                <div class="col-md-3">{{interview.Result}}</div>
-              </div>
-        </div>
-      </div>
-</div>
-
-
-<!-- <div class="row">
-
-  <div class="col-md-6" [ngClass]="{'open': opensection.shortListed == 'open', 'closed': opensection.shortListed == 'closed'}">
-    <app-shortlist-candidate-component></app-shortlist-candidate-component>
   </div>
-  <div class="col-md-6" [ngClass]="{'open': opensection.interview == 'open', 'closed': opensection.interview == 'closed'}">
-    <app-roundsofinterview></app-roundsofinterview>
-   </div>
-</div> -->
+  <div class="col-md-6">
+      <!-- For Interview Details -->
+      <div [ngClass]="{'open': opensection.interview == 'open', 'closed': opensection.interview == 'closed'}">
+          <div class="card border-success mb-3" style="max-width: 100%;">
+              <div class="card-header bg-transparent border-success">Interview Details</div>
+              <div class="card-body text-success">
+                <h5 class="card-title"><div class="row">
+                    <div class="col-md-3">Interview</div>
+                    <div class="col-md-4">Interviewer</div>
+                    <div class="col-md-2">Date</div>
+                    <div class="col-md-3">Result</div>
+                  </div></h5>
+                  <div class="row card-footer bg-transparent border-success jobsdetail" style="cursor: pointer;"
+                      *ngFor="let interview of this.interviewdetails; let i = index">
+                      <div class="col-md-3">{{interview.Interview}}</div>
+                      <div class="col-md-4">{{interview.interviewer}}</div>
+                      <div class="col-md-2">{{interview.Date}}</div>
+                      <div class="col-md-3">{{interview.Result}}</div>
+                    </div>
+              </div>
+            </div>
+      </div>
+  </div>
+</div>

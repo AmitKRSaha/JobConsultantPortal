@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { jsonpCallbackContext } from '../../../node_modules/@angular/common/http/src/module';
 
 @Injectable({ providedIn: 'root' })
 export class JobService {

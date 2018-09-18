@@ -10,11 +10,13 @@
 
       <ul class="navbar-nav navbar-right">
           <li class="nav-item">
-              <a class="nav-link" routerLink='/login'>Hi There</a>
+              <a class="nav-link" style="cursor: pointer" *ngIf="loginService.user" (click)="logOut()">Hi {{loginService.user | uppercase}}</a>
           </li>
       </ul>
   </div>
 </nav>
+
 <div class="container" style="margin-top: 5px;">
-  <app-job-shell [opensection]="opensection"></app-job-shell>
+  <div *ngIf="!loginService.loggedIn"> <app-login ></app-login></div>
+  <div *ngIf="loginService.loggedIn"><app-job-shell [opensection]="opensection" ></app-job-shell></div>
 </div>

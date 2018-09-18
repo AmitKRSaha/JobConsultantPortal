@@ -7,14 +7,14 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 1,
         name: 'IT Soft',
         Title : 'Java Eng',
-        Date_Posted : '20-8-13',
+        Date_Posted : '20/8/13',
         Status : 'Open'
       },
       {
         id: 2,
         name: 'Capge',
         Title : 'Dot Net',
-        Date_Posted : '20-11-13',
+        Date_Posted : '20/11/13',
         Status : 'Open'
       }
     ];
@@ -43,7 +43,7 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 1,
         Interview: 'Round#1',
         interviewer : 'Vijay',
-        Date : '20-8-13',
+        Date : '20/8/13',
         Result : 'Selected'
       },
       {
@@ -51,7 +51,7 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 1,
         Interview: 'HR Round',
         interviewer : 'Singh,HR',
-        Date : '27-8-13',
+        Date : '27/8/13',
         Result : 'Offered'
       }
     ];
