@@ -8,7 +8,7 @@ import { JobService } from '../jobdata/job.service';
 })
 export class JobShellComponent implements OnInit {
 
-  postedJobs: any;
+  postedJobs: any[];
   cadidatedetails: any;
   interviewdetails: any;
 
@@ -33,17 +33,16 @@ export class JobShellComponent implements OnInit {
         });
       });
     });
-    this.getShortListedCandidate(jobId);
+
+    // Unsubscribing...
   }
 
   getPostedJobs(value: string) {
-    this.jobService.getJobs(value).subscribe(data => {
-      // console.log('From get job method' + data);
-      this.postedJobs = data;
-      this.opensection.postedJobs = 'open';
+    this.postedJobs = this.postedJobs.filter((jobs) => jobs.Title.toUpperCase().includes(value.toUpperCase());
+
+    this.opensection.postedJobs = 'open';
       this.opensection.shortListed = 'closed';
       this.opensection.interview = 'closed';
-    });
   }
 
   getShortListedCandidate(value: string) {
@@ -65,6 +64,6 @@ export class JobShellComponent implements OnInit {
   }
 
   checkChanged(checked: boolean, value: string) {
-    console.log(checked ,value);
+    console.log(checked , value);
   }
 }

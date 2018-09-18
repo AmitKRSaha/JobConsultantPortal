@@ -60,10 +60,6 @@ export class JobService {
     };
   }
 
-  filterJobs(filterTerm: string, jobs: any[]) {
-    return jobs.filter(function(data) {
-      return data.name === filterTerm;
-    });
-  }
+
 
 }
