@@ -1,16 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { JobService } from '../jobdata/job.service';
+import { ISubscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-job-shell',
   templateUrl: './job-shell.component.html',
   styleUrls: ['./job-shell.component.css']
 })
-export class JobShellComponent implements OnInit {
+export class JobShellComponent implements OnInit, OnDestroy {
 
   postedJobs: any[];
   cadidatedetails: any;
   interviewdetails: any;
+  sub: ISubscription;
 
   @Input() opensection;
 
@@ -19,7 +21,7 @@ export class JobShellComponent implements OnInit {
   ngOnInit() {
     let jobId;
 
-    this.jobService.getAllJobs().subscribe(data => {
+    this.sub = this.jobService.getAllJobs().subscribe(data => {
       jobId = data[0].id;
       this.postedJobs = data;
       this.opensection.postedJobs = 'open';
@@ -33,12 +35,10 @@ export class JobShellComponent implements OnInit {
         });
       });
     });
-
-    // Unsubscribing...
   }
 
   getPostedJobs(value: string) {
-    this.postedJobs = this.postedJobs.filter((jobs) => jobs.Title.toUpperCase().includes(value.toUpperCase());
+    this.postedJobs = this.postedJobs.filter((jobs) => jobs.Title.toUpperCase().includes(value.toUpperCase()));
 
     this.opensection.postedJobs = 'open';
       this.opensection.shortListed = 'closed';
@@ -65,5 +65,10 @@ export class JobShellComponent implements OnInit {
 
   checkChanged(checked: boolean, value: string) {
     console.log(checked , value);
+  }
+
+  ngOnDestroy() {
+     // Unsubscribing...
+     this.sub.unsubscribe();
   }
 }
