@@ -8,9 +8,9 @@ import { jsonpCallbackContext } from '../../../node_modules/@angular/common/http
 @Injectable({ providedIn: 'root' })
 export class JobService {
 
-  private jobsUrl = 'api/jobs';  // URL to web api
-  private candidateUrl = 'api/shortListedCandidate';
-  private intervieweUrl = 'api/interviewDetails';
+  public jobsUrl = 'api/jobs';  // URL to web api
+  public candidateUrl = 'api/shortListedCandidate';
+  public intervieweUrl = 'api/interviewDetails';
 
 
   constructor(
