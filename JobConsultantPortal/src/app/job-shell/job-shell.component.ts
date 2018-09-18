@@ -9,6 +9,8 @@ import { JobService } from '../jobdata/job.service';
 export class JobShellComponent implements OnInit {
 
   postedJobs: any;
+  cadidatedetails: any;
+  interviewdetails: any;
 
   @Input() opensection;
 
@@ -19,7 +21,7 @@ export class JobShellComponent implements OnInit {
 
   getPostedJobs(value: string) {
     this.jobService.getJobs(value).subscribe(data => {
-      console.log(data);
+      console.log('From get job method' + data);
       this.postedJobs = data;
       this.opensection.postedJobs = 'open';
       this.opensection.shortListed = 'closed';
@@ -27,8 +29,21 @@ export class JobShellComponent implements OnInit {
     });
   }
 
-  getShortListedCandidate() {
+  getShortListedCandidate(value: string) {
+    this.jobService.getShortListedCandidate(value).subscribe(data => {
+      console.log('From get candidate method' + data);
+      this.cadidatedetails = data;
+      this.opensection.shortListed = 'open';
+      this.opensection.interview = 'closed';
+    });
 
-    alert('ok');
+  }
+
+  getCandidateInterviewDetails(value: string) {
+    this.jobService.getInterviewDetails(value).subscribe(data => {
+      console.log('From get interview method' + data);
+      this.interviewdetails = data;
+      this.opensection.interview = 'open';
+    });
   }
 }

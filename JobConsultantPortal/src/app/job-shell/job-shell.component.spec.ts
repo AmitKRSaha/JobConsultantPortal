@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { JobShellComponent } from './job-shell.component';
+import { ShortlistCandidateComponentComponent } from './shortlist-candidate-component/shortlist-candidate-component.component';
+import { RoundsofinterviewComponent } from './roundsofinterview/roundsofinterview.component';
+
 
 describe('JobShellComponent', () => {
   let component: JobShellComponent;
@@ -8,9 +11,13 @@ describe('JobShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JobShellComponent ],
+      declarations: [ JobShellComponent,
+        ShortlistCandidateComponentComponent,
+        RoundsofinterviewComponent
+      ],
       imports: [HttpClientModule],
     })
+
     .compileComponents();
   }));
 

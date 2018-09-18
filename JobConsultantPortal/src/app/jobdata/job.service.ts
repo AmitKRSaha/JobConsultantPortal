@@ -8,21 +8,36 @@ import { jsonpCallbackContext } from '../../../node_modules/@angular/common/http
 @Injectable({ providedIn: 'root' })
 export class JobService {
 
-  private heroesUrl = 'api/jobs';  // URL to web api
+  private jobsUrl = 'api/jobs';  // URL to web api
+  private candidateUrl = 'api/shortListedCandidate';
+  private intervieweUrl = 'api/interviewDetails';
+
 
   constructor(
     private http: HttpClient) { }
 
-  /** GET heroes from the server */
+  /** GET Jobs from the server */
   getJobs (value: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.heroesUrl}/?name=${value}`)
+    return this.http.get<any[]>(`${this.jobsUrl}/?name=${value}`)
       .pipe(
-        tap(jobs => {
-          console.log(jobs);
-          jobs = this.filterJobs(value, jobs);
-          console.log(jobs);
-        }),
+        tap(jobs => console.log(jobs)),
         catchError(this.handleError('getJobs', []))
+      );
+  }
+
+  getShortListedCandidate (value: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.candidateUrl}/?jobId=${value}`)
+      .pipe(
+        tap(jobs => console.log(jobs)),
+        catchError(this.handleError('getShortListedCandidate', []))
+      );
+  }
+
+  getInterviewDetails (value: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.intervieweUrl}/?shrtListId=${value}`)
+      .pipe(
+        tap(jobs => console.log(jobs)),
+        catchError(this.handleError('getInterview', []))
       );
   }
 
