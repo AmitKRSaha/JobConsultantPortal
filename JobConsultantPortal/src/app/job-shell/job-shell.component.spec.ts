@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { JobShellComponent } from './job-shell.component';
 
 describe('JobShellComponent', () => {
@@ -8,7 +8,8 @@ describe('JobShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JobShellComponent ]
+      declarations: [ JobShellComponent ],
+      imports: [HttpClientModule],
     })
     .compileComponents();
   }));
@@ -16,6 +17,16 @@ describe('JobShellComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(JobShellComponent);
     component = fixture.componentInstance;
+    component.postedJobs = [{
+      id: 1,
+      name: 'IT Soft',
+      Title : 'Java Eng',
+      Date_Posted : '20-8-13',
+      Status : 'Open'
+    }];
+    component.opensection = {
+      postedJobs : 'open'
+    };
     fixture.detectChanges();
   });
 

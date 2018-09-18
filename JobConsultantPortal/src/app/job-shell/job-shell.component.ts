@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { JobService } from '../jobdata/job.service';
 
 @Component({
@@ -10,6 +10,8 @@ export class JobShellComponent implements OnInit {
 
   postedJobs: any;
 
+  @Input() opensection;
+
   constructor(private jobService: JobService) { }
 
   ngOnInit() {
@@ -19,10 +21,14 @@ export class JobShellComponent implements OnInit {
     this.jobService.getJobs().subscribe(data => {
       console.log(data);
       this.postedJobs = data;
-    } );
+      this.opensection.postedJobs = 'open';
+      this.opensection.shortListed = 'closed';
+      this.opensection.interview = 'closed';
+    });
   }
 
   getShortListedCandidate() {
-    alert('Ok');
+
+    alert('ok');
   }
 }

@@ -10,9 +10,15 @@ export class AppComponent implements OnInit {
   title = 'JobConsultantPortal';
   pageTitle = 'Company Name';
 
+  opensection = {
+    postedJobs: 'closed',
+    shortListed: 'closed',
+    interview: 'closed'
+  };
+
   constructor(private jobService: JobService) {}
 
- ngOnInit() {
+  ngOnInit() {
 
- }
+  }
 }
