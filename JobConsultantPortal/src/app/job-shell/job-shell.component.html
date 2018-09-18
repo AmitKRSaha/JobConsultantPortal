@@ -18,7 +18,8 @@
               <div class="col-md-3">Date Posted</div>
               <div class="col-md-3">Status</div>
             </div></h5>
-            <div class="row card-footer bg-transparent border-success jobsdetail" style="cursor: pointer;" *ngFor="let jobs of this.postedJobs" (click)="getShortListedCandidate()">
+            <div class="row card-footer bg-transparent border-success jobsdetail" style="cursor: pointer;"
+              *ngFor="let jobs of this.postedJobs" (click)="getShortListedCandidate()">
                 <div class="col-md-3">{{jobs.name}}</div>
                 <div class="col-md-3">{{jobs.Title}}</div>
                 <div class="col-md-3">{{jobs.Date_Posted}}</div>
@@ -27,6 +28,14 @@
               </div>
         </div>
       </div>
-
+</div>
+<div class="row">
+  <!-- For Short Listed Candidate -->
+  <div class="col-md-6" [ngClass]="{'open': opensection.shortListed == 'open', 'closed': opensection.shortListed == 'closed'}">
+    <app-shortlist-candidate-component></app-shortlist-candidate-component>
+  </div>
+  <div class="col-md-6" [ngClass]="{'open': opensection.interview == 'open', 'closed': opensection.interview == 'closed'}">
+    <app-roundsofinterview></app-roundsofinterview>
+   </div>
 
 </div>

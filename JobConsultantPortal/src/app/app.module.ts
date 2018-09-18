@@ -8,12 +8,15 @@ import { JobService } from './jobdata/job.service';
 
 import { AppComponent } from './app.component';
 import { JobShellComponent } from './job-shell/job-shell.component';
-
+import { ShortlistCandidateComponentComponent } from './job-shell/shortlist-candidate-component/shortlist-candidate-component.component';
+import { RoundsofinterviewComponent } from './job-shell/roundsofinterview/roundsofinterview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    JobShellComponent
+    JobShellComponent,
+    ShortlistCandidateComponentComponent,
+    RoundsofinterviewComponent,
   ],
   imports: [
     BrowserModule,
