@@ -50,9 +50,14 @@ export class JobShellComponent implements OnInit, OnDestroy {
   getShortListedCandidate(value: string) {
     this.jobService.getShortListedCandidate(value).subscribe(data => {
       // console.log('From get candidate method' + data);
-      this.cadidatedetails = data;
-      this.opensection.shortListed = 'open';
-      this.opensection.interview = 'closed';
+      if (data.length > 0) {
+        this.cadidatedetails = data;
+        this.opensection.shortListed = 'open';
+        this.opensection.interview = 'closed';
+      } else {
+        this.opensection.shortListed = 'closed';
+        this.opensection.interview = 'closed';
+      }
     });
 
   }
@@ -60,8 +65,12 @@ export class JobShellComponent implements OnInit, OnDestroy {
   getCandidateInterviewDetails(value: string) {
     this.jobService.getInterviewDetails(value).subscribe(data => {
       // console.log('From get interview method' + data);
+      if (data.length > 0) {
       this.interviewdetails = data;
       this.opensection.interview = 'open';
+      } else {
+        this.opensection.interview = 'closed';
+      }
     });
   }
 
