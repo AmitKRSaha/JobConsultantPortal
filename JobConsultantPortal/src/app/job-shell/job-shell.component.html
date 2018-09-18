@@ -1,7 +1,7 @@
-<div class="row">
+<div class="row" style="margin-bottom: 1%">
   <div class="col-md-3"></div>
-  <div class="col-md-1"><input type="checkbox"/>Open</div>
-  <div class="col-md-1"><input type="checkbox"/>Closed</div>
+  <div class="col-md-1"><input  class="form-check-input" (change)="checkChanged($event.target.checked, 'open')" type="checkbox"/>Open</div>
+  <div class="col-md-1"><input  class="form-check-input" (change)="checkChanged($event.target.checked, 'closed')" type="checkbox"/>Closed</div>
   <div class="col-md-6">
     Title: <input type="text" #searchItem placeholder="Search term" style="margin-right: 1%"/>
     <button class="btn btn-primary" (click)="getPostedJobs(searchItem.value)">Search</button>

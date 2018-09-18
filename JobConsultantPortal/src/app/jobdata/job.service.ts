@@ -16,8 +16,16 @@ export class JobService {
     private http: HttpClient) { }
 
   /** GET Jobs from the server */
+  getAllJobs (): Observable<any[]> {
+    return this.http.get<any[]>(`${this.jobsUrl}`)
+      .pipe(
+        tap(jobs => console.log(jobs)),
+        catchError(this.handleError('getAllJobs', []))
+      );
+  }
+
   getJobs (value: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.jobsUrl}/?name=${value}`)
+    return this.http.get<any[]>(`${this.jobsUrl}/?Title=${value}`)
       .pipe(
         tap(jobs => console.log(jobs)),
         catchError(this.handleError('getJobs', []))
