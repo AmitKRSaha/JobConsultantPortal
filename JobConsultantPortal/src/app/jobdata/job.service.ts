@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { jsonpCallbackContext } from '../../../node_modules/@angular/common/http/src/module';
 
 @Injectable({ providedIn: 'root' })
 export class JobService {
@@ -13,11 +14,15 @@ export class JobService {
     private http: HttpClient) { }
 
   /** GET heroes from the server */
-  getJobs (): Observable<any[]> {
-    return this.http.get<any[]>(this.heroesUrl)
+  getJobs (value: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.heroesUrl}/?name=${value}`)
       .pipe(
-        tap(heroes => console.log('fetched heroes')),
-        catchError(this.handleError('getHeroes', []))
+        tap(jobs => {
+          console.log(jobs);
+          jobs = this.filterJobs(value, jobs);
+          console.log(jobs);
+        }),
+        catchError(this.handleError('getJobs', []))
       );
   }
 
@@ -31,6 +36,12 @@ export class JobService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+
+  filterJobs(filterTerm: string, jobs: any[]) {
+    return jobs.filter(function(data) {
+      return data.name === filterTerm;
+    });
   }
 
 }

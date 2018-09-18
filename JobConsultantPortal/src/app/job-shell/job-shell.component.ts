@@ -18,7 +18,7 @@ export class JobShellComponent implements OnInit {
   }
 
   getPostedJobs(value: string) {
-    this.jobService.getJobs().subscribe(data => {
+    this.jobService.getJobs(value).subscribe(data => {
       console.log(data);
       this.postedJobs = data;
       this.opensection.postedJobs = 'open';
