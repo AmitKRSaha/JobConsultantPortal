@@ -10,6 +10,7 @@ import { ISubscription } from 'rxjs/Subscription';
 export class JobShellComponent implements OnInit, OnDestroy {
 
   postedJobs: any[];
+  allPosedJobs: any[];
   cadidatedetails: any;
   interviewdetails: any;
   sub: ISubscription;
@@ -24,6 +25,7 @@ export class JobShellComponent implements OnInit, OnDestroy {
     this.sub = this.jobService.getAllJobs().subscribe(data => {
       jobId = data[0].id;
       this.postedJobs = data;
+      this.allPosedJobs = this.postedJobs;
       this.opensection.postedJobs = 'open';
       this.opensection.shortListed = 'open';
       this.opensection.interview = 'open';
@@ -38,7 +40,7 @@ export class JobShellComponent implements OnInit, OnDestroy {
   }
 
   getPostedJobs(value: string) {
-    this.postedJobs = this.postedJobs.filter((jobs) => jobs.Title.toUpperCase().includes(value.toUpperCase()));
+    this.postedJobs = this.allPosedJobs.filter((jobs) => jobs.Title.toUpperCase().includes(value.toUpperCase()));
 
     this.opensection.postedJobs = 'open';
       this.opensection.shortListed = 'closed';
@@ -65,6 +67,18 @@ export class JobShellComponent implements OnInit, OnDestroy {
 
   checkChanged(checked: boolean, value: string) {
     console.log(checked , value);
+    this.opensection.postedJobs = 'open';
+      this.opensection.shortListed = 'closed';
+      this.opensection.interview = 'closed';
+
+    if (checked && value === 'open') {
+      this.postedJobs = this.allPosedJobs.filter((jobs) => jobs.Status.toUpperCase().includes(value.toUpperCase()));
+    } else if (checked && value === 'closed') {
+      this.postedJobs = this.allPosedJobs.filter((jobs) => jobs.Status.toUpperCase().includes(value.toUpperCase()));
+    } else {
+    this.postedJobs = this.allPosedJobs;
+    }
+
   }
 
   ngOnDestroy() {

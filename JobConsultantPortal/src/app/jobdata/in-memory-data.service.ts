@@ -12,10 +12,17 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 2,
-        name: 'Capge',
+        name: 'Capgemini',
         Title : 'Dot Net',
         Date_Posted : '20/11/13',
         Status : 'Open'
+      },
+      {
+        id: 3,
+        name: 'FAI',
+        Title : 'Angular',
+        Date_Posted : '20/5/16',
+        Status : 'Closed'
       }
     ];
 
