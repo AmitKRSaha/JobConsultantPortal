@@ -11,8 +11,8 @@ export class JobShellComponent implements OnInit, OnDestroy {
 
   postedJobs: any[];
   allPosedJobs: any[];
-  cadidatedetails: any;
-  interviewdetails: any;
+  cadidatedetails: any[];
+  interviewdetails: any[];
   sub: ISubscription;
 
   @Input() opensection;
@@ -75,8 +75,8 @@ export class JobShellComponent implements OnInit, OnDestroy {
   }
 
   checkChanged(checked: boolean, value: string) {
-    console.log(checked , value);
-    this.opensection.postedJobs = 'open';
+    // console.log(checked , value);
+      this.opensection.postedJobs = 'open';
       this.opensection.shortListed = 'closed';
       this.opensection.interview = 'closed';
 
