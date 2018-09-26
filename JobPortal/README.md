@@ -1,3 +1,22 @@
+# JobConsultantPortal PWA
+
+1. $ ng build --prod
+2. $ npm i -g http-server
+3. $ cd dist/JOBCONSULTANTPORTAL
+ 4. $ http-server -o
+
+ You preferably need to set the Emulation to Mobile instead of Desktop to emulate a mobile environment. Next, click on Perform an audit… blue button. You’ll have a dialog opened in which you need to choose the types of the audits you want to perform against your web application. Un-check all types but Progressive Web App and click the Run audit button.
+
+# TO FIX AUDIT ISSUE
+ 5. $ ng add @angular/pwa
+ 6. short_name manifesh.json should be <12
+
+ For More 
+ [Angular PWA](https://www.smashingmagazine.com/2018/09/pwa-angular-6/)
+
+
+
+
 # JobConsultantPortal
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.

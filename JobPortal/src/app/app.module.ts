@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { JobShellComponent } from './job-shell/job-shell.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { LoginService } from './login/login.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false})
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [JobService,LoginService],
   bootstrap: [AppComponent]
